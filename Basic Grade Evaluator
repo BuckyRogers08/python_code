@@ -1,0 +1,40 @@
+subjects = {
+    "m1" : float(input("enter marks in Mathematics: ")),
+    "m2" : float(input("Enter marks in Physics: ")),
+    "m3" : float(input("Enter marks in Chemistry: ")),
+    "m4" : float(input("Enter marks in Biology: ")),
+    "m5" : float(input("Enter marks in English: "))}
+
+marks_list = [m1,m2,m3,m4,m5]
+
+for m in marks_list:
+  if m<0 or m>100:
+    print("invalid input. Please check whether the marks submitted are correct")
+    exit()  
+sorted_list = sorted(subjects.items(),key=lambda x:x[1],reverse=True)
+top_3 = sorted_list[:3]
+best_of_3_avg = sum(x[1] for x in sorted_list[:3])/3
+avg_marks = sum(marks_list)/ len(marks_list)
+
+if avg_marks>=90:
+  Grade = "A+"
+elif avg_marks>=80:
+  Grade = "A"
+elif avg_marks>=70:
+  Grade = "B"
+elif avg_marks>=60:
+  Grade = "C"
+elif avg_marks>=50:
+  Grade = "D"
+else: 
+  Grade = "FAIL"
+
+if Grade in ['A+','A','B','C','D']:
+  print("           CONGRATULATIONS!!!         ")
+else:
+  print("BETTER LUCK NEXT TIME")
+
+print(f"Average marks in all subjects is: {avg_marks:.3f}")
+print("Grade:",Grade)
+print(f"best of 3 avg is:{best_of_3_avg:.3f}")
+
